@@ -77,6 +77,17 @@ root@server:~# update-bootscript
 ```
 // root user add
 root@server:~# passwd root
+
+root@server:~# vi /etc/ssh/sshd_config
+
+...
+# PermitRootLogin prohibit-password
+PermitRootLogin yes
+StrictModes yes
+PubkeyAuthentication yes
+...
+
+root@server:~# service ssh restart
 ```
 
 ### server auto login
