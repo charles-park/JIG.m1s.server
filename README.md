@@ -73,6 +73,58 @@ LINUX_KERNEL_CMDLINE_DEFAULTS=""
 root@server:~# update-bootscript
 ```
 
+### add root user, ssh root enable (https://www.leafcats.com/176)
+```
+// root user add
+root@server:~# passwd root
+```
+
+### server auto login
+```
+root@server:~# systemctl edit getty@tty1.service
+```
+```
+[Service]
+ExecStart=
+ExecStart=-/sbin/agetty --noissue --autologin root %I $TERM
+Type=idle
+```
+
+### server static ip settings
+```
+root@server:~# vi /etc/netplan/01-netcfg.yaml
+```
+```
+network:
+    version: 2
+    renderer: networkd
+    ethernets:
+        eth0:
+            dhcp4: no
+            # static ip address
+            addresses:
+                - 192.168.20.162/24
+            gateway4: 192.168.20.1
+            nameservers:
+              addresses: [8.8.8.8,168.126.63.1]
+
+```
+
+### server samba config
+```
+root@server:~# vi /etc/samba/smb.conf
+```
+```
+[odroidm1s]
+   comment = odroid-m1s jig root
+   path = /root
+   guest ok = no
+   browseable = no
+   writable = yes
+   create mask = 0755
+   directory mask = 0755
+```
+
 ### Sound setup
 ```
 root@server:~# aplay -l
