@@ -84,7 +84,7 @@ root@server:~# cd JIG.m1s.server
 root@server:~/JIG.m1s.server# git submodule update --init --recursive
 ```
 
-### Clone the iperf3_odroid and server mode install
+### iperf3_odroid server mode install
 ```
 root@server:~# git clone httos://github.com/charles-park/iperf3_odroid
 root@server:~# cd iperf3_odroid
