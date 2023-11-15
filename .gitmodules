@@ -10,6 +10,3 @@
 [submodule "lib_uart"]
 	path = lib_uart
 	url = https://github.com/charles-park/lib_uart
-[submodule "service/iperf3_odroid"]
-	path = service/iperf3_odroid
-	url = https://github.com/charles-park/iperf3_odroid
