@@ -56,6 +56,9 @@ void protocol_msg_tx (uart_t *puart, char cmd, int ui_id, int grp_id, int dev_id
 {
     char send_data [PROTOCOL_TX_BYTES], str_id[5];
 
+    /* uart null point error fix */
+    if (puart == NULL)  return;
+
     send_data [0]  = '@';
     send_data [1]  = cmd;
     send_data [11] = act;
@@ -91,6 +94,9 @@ void protocol_msg_tx (uart_t *puart, char cmd, int ui_id, int grp_id, int dev_id
 int protocol_msg_rx (uart_t *puart, char *rx_msg)
 {
     unsigned char idata, p_cnt;
+
+    /* uart null point error fix */
+    if (puart == NULL)  return 0;
 
     /* uart data processing */
     if (uart_read (puart, &idata, 1)) {
