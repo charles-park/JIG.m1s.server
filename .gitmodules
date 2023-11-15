@@ -1,0 +1,12 @@
+[submodule "lib_fbui"]
+	path = lib_fbui
+	url = https://github.com/charles-park/lib_fbui
+[submodule "lib_i2cadc"]
+	path = lib_i2cadc
+	url = https://github.com/charles-park/lib_i2cadc
+[submodule "lib_nlp"]
+	path = lib_nlp
+	url = https://github.com/charles-park/lib_nlp
+[submodule "lib_uart"]
+	path = lib_uart
+	url = https://github.com/charles-park/lib_uart
