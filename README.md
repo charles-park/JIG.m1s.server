@@ -73,13 +73,32 @@ LINUX_KERNEL_CMDLINE_DEFAULTS=""
 root@server:~# update-bootscript
 ```
 
+### Clone the reopsitory with submodule
+```
+root@server:~# git clone --recursive https://github.com/charles-park/JIG.m1s.server
+
+or
+
+root@server:~# git clone https://github.com/charles-park/JIG.m1s.server
+root@server:~# cd JIG.m1s.server
+root@server:~/JIG.m1s.server# git submodule update --init --recursive
+```
+
+### Clone the iperf3_odroid and server mode install
+```
+root@server:~# git clone httos://github.com/charles-park/iperf3_odroid
+root@server:~# cd iperf3_odroid
+root@server:~/iperf3_odroid# make
+root@server:~/iperf3_odroid# make install
+root@server:~/iperf3_odroid# cd service
+root@server:~/iperf3_odroid/service# ./install
+```
+
 ### add root user, ssh root enable (https://www.leafcats.com/176)
 ```
 // root user add
 root@server:~# passwd root
-
 root@server:~# vi /etc/ssh/sshd_config
-
 ...
 # PermitRootLogin prohibit-password
 PermitRootLogin yes
@@ -123,6 +142,7 @@ network:
 
 ### server samba config
 ```
+root@server:~# smbpasswd -a root
 root@server:~# vi /etc/samba/smb.conf
 ```
 ```
@@ -170,17 +190,6 @@ Simple mixer control 'Capture MIC Path',0
 
 // play audio file
 root@server:~# aplay -Dhw:1,0 {audio file} -d {play time}
-```
-
-### Clone the reopsitory with submodule
-```
-root@odroid:~# git clone --recursive https://github.com/charles-park/JIG.m1s.server
-
-or
-
-root@odroid:~# git clone https://github.com/charles-park/JIG.m1s.server
-root@odroid:~# cd JIG.m1s.server
-root@odroid:~/JIG.m1s.server# git submodule update --init --recursive
 ```
 
 ### Overlay root
