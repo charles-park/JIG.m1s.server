@@ -19,6 +19,9 @@ odroid-m1s server
 
 * Install ubuntu package & python3 module
 ```
+// ubuntu system upgrade
+root@server:~# apt update && apt upgrade -y
+
 // ubuntu package
 root@server:~# apt install samba ssh build-essential python3 python3-pip ethtool net-tools usbutils git i2c-tools vim cups cups-bsd overlayroot nmap
 
