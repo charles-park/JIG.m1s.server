@@ -89,11 +89,17 @@ root@server:~/JIG.m1s.server# git submodule update --init --recursive
 
 ### iperf3_odroid server mode install
 ```
-root@server:~# git clone httos://github.com/charles-park/iperf3_odroid
+root@server:~# git clone https://github.com/charles-park/iperf3_odroid
 
 root@server:~# cd iperf3_odroid
 
+// iperf3 deb install
+root@server:~/iperf3_odroid# apt install libiperf0 libsctp1
 root@server:~/iperf3_odroid# dpkg -i iperf3_deb/iperf3_3.7-3_arm64.deb
+
+or
+// iperf3 install
+root@server:~/iperf3_odroid# apt install iperf3
 
 root@server:~/iperf3_odroid# make
 
@@ -149,6 +155,10 @@ network:
               addresses: [8.8.8.8,168.126.63.1]
 
 ```
+```
+root@server:~# netplan apply
+root@server:~# ifconfig
+```
 
 ### server samba config
 ```
@@ -164,6 +174,9 @@ root@server:~# vi /etc/samba/smb.conf
    writable = yes
    create mask = 0755
    directory mask = 0755
+```
+```
+root@server:~# service smbd restart
 ```
 
 ### Sound setup
